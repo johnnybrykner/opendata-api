@@ -1,16 +1,12 @@
 require("dotenv").config();
 const models = require("./models");
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 const mongoose = require("mongoose");
 
 (async (_) => {
   try {
     const url = process.env.CONNECTION_STRING;
-    await mongoose.connect(url, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    });
+    await mongoose.connect(url);
     const rawData = await fetch(process.env.EFICODE_API_URL, {
       method: "GET",
       headers: {

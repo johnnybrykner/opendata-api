@@ -13,11 +13,7 @@ app.use(cors());
 (async (_) => {
   try {
     const url = process.env.CONNECTION_STRING;
-    await mongoose.connect(url, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    });
+    await mongoose.connect(url);
     console.log("Successfully connected to the database");
   } catch (error) {
     console.error("Database connection failed: ", error);
