@@ -23,9 +23,9 @@ app.use(cors());
 app.get("/sensor",
   async (req, res) => {
     if (req.query.date) {
-      req.text("Success!");
+      req.send("Success!");
     } else {
-      req.text("Fail!");
+      req.send("Fail!");
     }
   }
 );

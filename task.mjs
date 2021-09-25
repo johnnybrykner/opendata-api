@@ -1,9 +1,10 @@
-require("dotenv").config();
-const models = require("./models");
+import dotenv from "dotenv";
+import * as models from "./models.js";
 import fetch from "node-fetch";
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 (async (_) => {
+  dotenv.config();
   try {
     const url = process.env.CONNECTION_STRING;
     await mongoose.connect(url);
@@ -19,7 +20,10 @@ const mongoose = require("mongoose");
       ...sensorResponse,
     });
     await newSensor.save();
+    console.log("Entry added successfully!");
+    return;
   } catch (error) {
-    console.error("Database connection failed: ", error);
+    console.error("Database entry failed: ", error);
+    return;
   }
 })();
