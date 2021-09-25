@@ -18,6 +18,8 @@ import mongoose from "mongoose";
     const sensorResponse = await rawData.json();
     const newSensor = new models.Sensor({
       ...sensorResponse,
+      dataDate: sensorResponse.date,
+      date: new Date().toISOString()
     });
     await newSensor.save();
     console.log("Entry added successfully!");

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const sensorSchema = new mongoose.Schema(
   {
     date: String,
+    dataDate: String,
     sensor1: Number | null,
     sensor2: Number | null,
     sensor3: Number | null,
