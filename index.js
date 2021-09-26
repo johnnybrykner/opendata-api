@@ -32,8 +32,7 @@ app.get("/sensor",
 app.get("/times",
   async (req, res) => {
     try {
-      models.Sensor.find().sort({ date: -1 }).limit(24).select("date").exec((error, data) => {
-        console.log(data);
+      models.Sensor.find().sort({ date: -1 }).limit(8).select("date").exec((error, data) => {
         if (error) throw error;
         res.json(data);
       });
